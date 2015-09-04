@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Mazes.Algorithms;
 
 namespace Mazes.Core.Tests
 {
@@ -11,8 +12,7 @@ namespace Mazes.Core.Tests
         public void TestConstructor()
         {
             var grid = new Grid(5, 5);
-            Console.WriteLine(grid.ToString());
-            var cell = grid[0, 1];
+            Console.WriteLine(BinaryTree.On(grid).ToString());
         }
     }
 }

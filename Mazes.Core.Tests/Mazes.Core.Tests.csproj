@@ -57,6 +57,10 @@
     <Compile Include="GridTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Mazes.Algorithms\Mazes.Algorithms.csproj">
+      <Project>{8d6df24b-0e06-4028-a9e2-8a01bd425162}</Project>
+      <Name>Mazes.Algorithms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Mazes.Core\Mazes.Core.csproj">
       <Project>{7c271e91-b523-4837-b383-a17bd26379d9}</Project>
       <Name>Mazes.Core</Name>
