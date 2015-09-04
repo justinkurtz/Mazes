@@ -6,9 +6,9 @@
     <ProjectGuid>{C8C91A85-3227-4422-A6B0-D656DC726419}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mazes.Core.Tests</RootNamespace>
-    <AssemblyName>Mazes.Core.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>Mazes.Tests</RootNamespace>
+    <AssemblyName>Mazes.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -36,6 +37,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -52,9 +54,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CellTests.cs" />
+    <Compile Include="Algorithms\BinaryTreeTests.cs" />
+    <Compile Include="Core\CellTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GridTests.cs" />
+    <Compile Include="Core\GridTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Mazes.Algorithms\Mazes.Algorithms.csproj">

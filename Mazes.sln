@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mazes.Core", "Mazes.Core\Mazes.Core.csproj", "{7C271E91-B523-4837-B383-A17BD26379D9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mazes.Core.Tests", "Mazes.Core.Tests\Mazes.Core.Tests.csproj", "{C8C91A85-3227-4422-A6B0-D656DC726419}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mazes.Tests", "Mazes.Tests\Mazes.Tests.csproj", "{C8C91A85-3227-4422-A6B0-D656DC726419}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mazes.Algorithms", "Mazes.Algorithms\Mazes.Algorithms.csproj", "{8D6DF24B-0E06-4028-A9E2-8A01BD425162}"
 EndProject

@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Mazes.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
-namespace Mazes.Core.Tests
+namespace Mazes.Tests.Core
 {
     [TestClass]
     public class CellTests

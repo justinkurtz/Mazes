@@ -1,6 +1,7 @@
 ﻿using Mazes.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Mazes.Algorithms
 {
@@ -19,7 +20,7 @@ namespace Mazes.Algorithms
                 if (cell.East != null)
                     neighbors.Add(cell.East);
 
-                if (neighbors.Count > 0)
+                if (neighbors.Any())
                 {
                     var index = rand.Next(neighbors.Count);
                     var neighbor = neighbors[index];
