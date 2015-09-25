@@ -23,7 +23,7 @@
 
             Init();
         }
-        
+
         private void Init()
         {
             for (int row = 0; row < Rows; row++)
@@ -45,7 +45,7 @@
                 }
             }
         }
-        
+
         public Cell GetRandomCell()
         {
             var rand = new Random();
@@ -72,7 +72,7 @@
 
         public IEnumerator GetEnumerator()
         {
-            for(int row = 0; row < Rows; row++)
+            for (int row = 0; row < Rows; row++)
             {
                 for (int col = 0; col < Columns; col++)
                 {
@@ -110,7 +110,7 @@
                 graphic.Clear(Color.White);
 
                 // Paint the backgrounds
-                foreach(Cell cell in this)
+                foreach (Cell cell in this)
                 {
                     var x1 = cell.Column * cellSize;
                     var y1 = cell.Row * cellSize;
@@ -131,7 +131,7 @@
                     var y1 = cell.Row * cellSize;
                     var x2 = (cell.Column + 1) * cellSize;
                     var y2 = (cell.Row + 1) * cellSize;
-                    
+
                     var pen = Pens.Black;
                     if (cell.North == null)
                     {
@@ -162,21 +162,21 @@
             var sb = new StringBuilder();
             sb.Append("+");
 
-            for(int i = 0; i < Columns; i++)
+            for (int i = 0; i < Columns; i++)
             {
                 sb.Append("---+");
             }
 
             sb.AppendLine();
 
-            foreach(var row in EachRow())
+            foreach (var row in EachRow())
             {
                 var top = new StringBuilder();
                 top.Append("|");
                 var bottom = new StringBuilder();
                 bottom.Append("+");
 
-                foreach(var cell in row)
+                foreach (var cell in row)
                 {
                     var east_boundary = cell.IsLinked(cell.East) ? " " : "|";
                     top.AppendFormat("{0}{1}", ContentsOf(cell), east_boundary);

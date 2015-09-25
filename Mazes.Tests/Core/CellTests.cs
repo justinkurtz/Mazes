@@ -11,7 +11,7 @@ namespace Mazes.Tests.Core
         {
             var cell = new Cell();
         }
-        
+
         [TestMethod]
         public void TestLinkBidirectional()
         {

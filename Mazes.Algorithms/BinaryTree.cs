@@ -10,7 +10,7 @@ namespace Mazes.Algorithms
         public static Grid On(Grid grid)
         {
             var rand = new Random();
-            foreach(Cell cell in grid)
+            foreach (Cell cell in grid)
             {
                 var neighbors = new List<Cell>();
 
