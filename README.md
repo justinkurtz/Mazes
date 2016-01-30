@@ -1,7 +1,7 @@
-# Mazes
-Mazes for Programmers in C#
+# Mazes for Programmers in C#
+[![Build status](https://ci.appveyor.com/api/projects/status/347lp8rd46lgmyj1?svg=true)](https://ci.appveyor.com/project/justinkurtz/mazes)
 
-Working through the Mazes for Programmers book by Jamis Buck
+Working through the Mazes for Programmers by Jamis Buck. You can find it [here](https://pragprog.com/book/jbmaze/mazes-for-programmers).
 
 “About the Code The sample code and the examples in this book are all written in Ruby, but the algorithms and techniques used are definitely not Ruby-specific! This book could have been written just as well in Python, or C, or Java, or C#, or any other language. I hope the examples are written clearly enough that even if you aren’t familiar with Ruby, the concepts shine through. There’s plenty of room for experimentation, whether or not Ruby is your thing.
 
