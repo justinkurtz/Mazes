@@ -1,4 +1,4 @@
-# Mazes for Programmers in C#
+# Mazes for Programmers in C\#
 [![Build status](https://ci.appveyor.com/api/projects/status/347lp8rd46lgmyj1?svg=true)](https://ci.appveyor.com/project/justinkurtz/mazes)
 
 Working through the Mazes for Programmers by Jamis Buck. You can find it [here](https://pragprog.com/book/jbmaze/mazes-for-programmers).
