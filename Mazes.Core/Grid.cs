@@ -1,13 +1,12 @@
-﻿namespace Mazes.Core
-{
-    using System;
-    using System.Linq;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Text;
-    using System.Drawing;
-    using System.Drawing.Imaging;
+﻿using System;
+using System.Linq;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+using System.Drawing;
 
+namespace Mazes.Core
+{
     public class Grid : IEnumerable
     {
         public int Rows { get; private set; }
@@ -133,11 +132,11 @@
                     var y2 = (cell.Row + 1) * cellSize;
 
                     var pen = Pens.Black;
-                    if (cell.North == null)
+                    if (!cell.IsLinked(cell.North))
                     {
                         graphic.DrawLine(pen, new Point { X = x1, Y = y1 }, new Point { X = x2, Y = y1 });
                     }
-                    if (cell.West == null)
+                    if (!cell.IsLinked(cell.West))
                     {
                         graphic.DrawLine(pen, new Point { X = x1, Y = y1 }, new Point { X = x1, Y = y2 });
                     }

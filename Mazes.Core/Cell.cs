@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Mazes.Core
 {
@@ -11,10 +12,47 @@ namespace Mazes.Core
         public Cell West { get; set; }
         public Cell North { get; set; }
         public Cell South { get; set; }
+        
+        public Distances Distances
+        {
+            get
+            {
+                var distances = new Distances(this);
+                var frontier = new List<Cell>() { this };
+
+                while(frontier.Any())
+                {
+                    var newFrontier = new List<Cell>();
+
+                    foreach (var cell in frontier)
+                    {
+                        foreach (var linked in cell.Links)
+                        {
+                            if (distances.HasKey(linked))
+                                continue;
+
+                            distances[linked] = distances[cell] + 1;
+                            newFrontier.Add(linked);
+                        }
+                    }
+
+                    frontier = newFrontier;
+                }
+
+                return distances;
+            }
+        }
+
+        public IEnumerable<Cell> Links
+        {
+            get { return _Links.Keys; }
+        }
+
+        private Dictionary<Cell, bool> _Links { get; set; }
 
         public Cell()
         {
-            Links = new Dictionary<Cell, bool>();
+            _Links = new Dictionary<Cell, bool>();
         }
 
         public Cell(int row, int column) : this()
@@ -25,7 +63,7 @@ namespace Mazes.Core
 
         public Cell Link(Cell cell, bool bidirectional = true)
         {
-            Links[cell] = true;
+            _Links[cell] = true;
 
             if (bidirectional)
             {
@@ -37,12 +75,12 @@ namespace Mazes.Core
 
         public bool IsLinked(Cell cell)
         {
-            return cell != null && Links.ContainsKey(cell) && Links[cell];
+            return cell != null && _Links.ContainsKey(cell) && _Links[cell];
         }
 
         public Cell Unlink(Cell cell, bool bidirectional = true)
         {
-            Links[cell] = false;
+            _Links[cell] = false;
 
             if (bidirectional)
             {
@@ -51,7 +89,5 @@ namespace Mazes.Core
 
             return this;
         }
-
-        private Dictionary<Cell, bool> Links { get; set; }
     }
 }

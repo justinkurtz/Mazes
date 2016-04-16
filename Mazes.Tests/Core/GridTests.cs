@@ -59,11 +59,21 @@ namespace Mazes.Tests.Core
         }
 
         [TestMethod]
-        [Ignore]
         public void TestToBitmap()
         {
             var bitmap = smallGrid.ToBitmap();
-            bitmap.Save("test-bitmap.png");
+            bitmap.Save("2x2.png");
+            Assert.IsNotNull(bitmap);
+        }
+
+        [TestMethod]
+        public void TestToBitmapWithLinks()
+        {
+            var cell = smallGrid[0, 0];
+            cell.Link(cell.South).Link(cell.East).East.Link(cell.East.South);
+
+            var bitmap = smallGrid.ToBitmap();
+            bitmap.Save("2x2-linked.png");
             Assert.IsNotNull(bitmap);
         }
     }

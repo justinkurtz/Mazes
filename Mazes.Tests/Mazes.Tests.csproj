@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Mazes.Tests</RootNamespace>
     <AssemblyName>Mazes.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -56,14 +56,12 @@
   <ItemGroup>
     <Compile Include="Algorithms\BinaryTreeTests.cs" />
     <Compile Include="Core\CellTests.cs" />
+    <Compile Include="Core\ColoredGridTests.cs" />
+    <Compile Include="Core\DistancesTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\GridTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Mazes.Algorithms\Mazes.Algorithms.csproj">
-      <Project>{8d6df24b-0e06-4028-a9e2-8a01bd425162}</Project>
-      <Name>Mazes.Algorithms</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Mazes.Core\Mazes.Core.csproj">
       <Project>{7c271e91-b523-4837-b383-a17bd26379d9}</Project>
       <Name>Mazes.Core</Name>

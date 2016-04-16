@@ -42,7 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Algorithms\BinaryTree.cs" />
+    <Compile Include="Algorithms\Wilsons.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="ColoredGrid.cs" />
+    <Compile Include="Distances.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
