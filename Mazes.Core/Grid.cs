@@ -12,13 +12,14 @@ namespace Mazes.Core
         public int Rows { get; private set; }
         public int Columns { get; private set; }
 
-        private Cell[,] Cells { get; set; }
+        private Cell[,] _Cells { get; set; }
+        private static Random random = new Random();
 
         public Grid(int rows, int columns)
         {
             Rows = rows;
             Columns = columns;
-            Cells = new Cell[Rows, Columns];
+            _Cells = new Cell[Rows, Columns];
 
             Init();
         }
@@ -29,7 +30,7 @@ namespace Mazes.Core
             {
                 for (int col = 0; col < Columns; col++)
                 {
-                    Cells[row, col] = new Cell(row, col);
+                    _Cells[row, col] = new Cell(row, col);
                 }
             }
 
@@ -37,21 +38,20 @@ namespace Mazes.Core
             {
                 for (int col = 0; col < Columns; col++)
                 {
-                    Cells[row, col].North = this[row - 1, col];
-                    Cells[row, col].South = this[row + 1, col];
-                    Cells[row, col].East = this[row, col + 1];
-                    Cells[row, col].West = this[row, col - 1];
+                    _Cells[row, col].North = this[row - 1, col];
+                    _Cells[row, col].South = this[row + 1, col];
+                    _Cells[row, col].East = this[row, col + 1];
+                    _Cells[row, col].West = this[row, col - 1];
                 }
             }
         }
 
         public Cell GetRandomCell()
         {
-            var rand = new Random();
-            int row = rand.Next(Rows);
-            int col = rand.Next(Columns);
+            int row = random.Next(Rows);
+            int col = random.Next(Columns);
 
-            return Cells[row, col];
+            return _Cells[row, col];
         }
 
         public IEnumerable<IEnumerable<Cell>> EachRow()
@@ -75,7 +75,7 @@ namespace Mazes.Core
             {
                 for (int col = 0; col < Columns; col++)
                 {
-                    yield return Cells[row, col];
+                    yield return _Cells[row, col];
                 }
             }
         }
@@ -87,7 +87,7 @@ namespace Mazes.Core
                 if (row < 0 || row >= Rows) return null;
                 if (col < 0 || col >= Columns) return null;
 
-                return Cells[row, col];
+                return _Cells[row, col];
             }
         }
 

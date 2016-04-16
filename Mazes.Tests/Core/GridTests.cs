@@ -73,7 +73,6 @@ namespace Mazes.Tests.Core
             cell.Link(cell.South).Link(cell.East).East.Link(cell.East.South);
 
             var bitmap = smallGrid.ToBitmap();
-            bitmap.Save("2x2-linked.png");
             Assert.IsNotNull(bitmap);
         }
     }

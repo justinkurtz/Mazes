@@ -10,17 +10,11 @@ namespace Mazes.Algorithms
     {
         public static Grid On(Grid grid)
         {
-            var unvisited = new List<Cell>();
-            
-            foreach (Cell cell in grid)
-            {
-                unvisited.Add(cell);
-            }
+            var unvisited = grid.Cast<Cell>().ToList();
 
             var first = unvisited.Random();
             unvisited.Remove(first);
-
-            int j = 0;
+            
             while (unvisited.Any())
             {
                 var cell = unvisited.Random();
