@@ -2,7 +2,6 @@
 using Mazes.Core.Algorithms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-
 namespace Mazes.Tests.Algorithms
 {
     [TestClass]
@@ -20,6 +19,15 @@ namespace Mazes.Tests.Algorithms
         public void TestAldousBroder()
         {
             AldousBroder.On(grid).ToBitmap().Save("aldousbroder.png");
+        }
+
+        [TestMethod]
+        public void TestAldousBroderColored()
+        {
+            var coloredGrid = new ColoredGrid(25, 25);
+            AldousBroder.On(coloredGrid);
+            coloredGrid.Distances = coloredGrid.GetCenterCell().Distances;
+            coloredGrid.ToBitmap().Save("aldousbroder-colored.png");
         }
     }
 }

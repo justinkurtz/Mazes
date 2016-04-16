@@ -20,5 +20,14 @@ namespace Mazes.Tests.Algorithms
         {
             Wilsons.On(grid).ToBitmap().Save("wilsons.png");
         }
+
+        [TestMethod]
+        public void TestWilsonsColoredGrid()
+        {
+            var coloredGrid = new ColoredGrid(25, 25);
+            Wilsons.On(coloredGrid);
+            coloredGrid.Distances = coloredGrid.GetCenterCell().Distances;
+            coloredGrid.ToBitmap().Save("wilsons-colored.png");
+        }
     }
 }

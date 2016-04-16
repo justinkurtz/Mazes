@@ -1,4 +1,5 @@
-﻿using Mazes.Core;
+﻿using Mazes.Algorithms;
+using Mazes.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Mazes.Tests.Core
@@ -6,20 +7,20 @@ namespace Mazes.Tests.Core
     [TestClass]
     public class ColoredGridTests
     {
-        private ColoredGrid smallGrid;
+        private ColoredGrid grid;
 
         [TestInitialize]
         public void TestInit()
         {
-            smallGrid = new ColoredGrid(2, 2);
+            grid = new ColoredGrid(5, 5);
         }
 
         [TestMethod]
-        //[Ignore]
-        public void TestToBitmap()
+        public void TestBinaryTreeColoredGrid()
         {
-            var bitmap = smallGrid.ToBitmap();
-            bitmap.Save("test-bitmap.png");
+            BinaryTree.On(grid);
+            grid.Distances = grid.GetCenterCell().Distances;
+            var bitmap = grid.ToBitmap();
             Assert.IsNotNull(bitmap);
         }
     }

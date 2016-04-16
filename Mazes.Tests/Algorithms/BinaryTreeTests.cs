@@ -21,5 +21,14 @@ namespace Mazes.Tests.Algorithms
         {
             BinaryTree.On(grid).ToBitmap().Save("binarytree.png");
         }
+
+        [TestMethod]
+        public void TestBinaryTreeColoredGrid()
+        {
+            var coloredGrid = new ColoredGrid(25, 25);
+            BinaryTree.On(coloredGrid);
+            coloredGrid.Distances = coloredGrid.GetCenterCell().Distances;
+            coloredGrid.ToBitmap().Save("binarytree-colored.png");
+        }
     }
 }

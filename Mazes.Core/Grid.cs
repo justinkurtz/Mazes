@@ -54,6 +54,11 @@ namespace Mazes.Core
             return _Cells[row, col];
         }
 
+        public Cell GetCenterCell()
+        {
+            return _Cells[Rows / 2, Columns / 2];
+        }
+
         public IEnumerable<IEnumerable<Cell>> EachRow()
         {
             var allCells = this.Cast<Cell>();
