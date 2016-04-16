@@ -55,6 +55,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Algorithms\BinaryTreeTests.cs" />
+    <Compile Include="Algorithms\WilsonsTests.cs" />
     <Compile Include="Core\CellTests.cs" />
     <Compile Include="Core\ColoredGridTests.cs" />
     <Compile Include="Core\DistancesTests.cs" />

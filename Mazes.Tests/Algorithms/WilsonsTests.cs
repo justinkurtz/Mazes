@@ -1,12 +1,11 @@
-﻿using System;
-using Mazes.Algorithms;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mazes.Core;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Mazes.Algorithms;
 
 namespace Mazes.Tests.Algorithms
 {
     [TestClass]
-    public class BinaryTreeTests
+    public class WilsonsTests
     {
         private Grid grid;
 
@@ -17,9 +16,9 @@ namespace Mazes.Tests.Algorithms
         }
 
         [TestMethod]
-        public void TestBinaryTree()
+        public void TestWilsons()
         {
-            BinaryTree.On(grid).ToBitmap().Save("binarytree.png");
+            Wilsons.On(grid).ToBitmap().Save("wilsons.png");
         }
     }
 }

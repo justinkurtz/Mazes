@@ -1,5 +1,4 @@
 ﻿using Mazes.Core;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,7 +8,6 @@ namespace Mazes.Algorithms
     {
         public static Grid On(Grid grid)
         {
-            var rand = new Random();
             foreach (Cell cell in grid)
             {
                 var neighbors = new List<Cell>();
@@ -22,10 +20,7 @@ namespace Mazes.Algorithms
 
                 if (neighbors.Any())
                 {
-                    var index = rand.Next(neighbors.Count);
-                    var neighbor = neighbors[index];
-
-                    cell.Link(neighbor);
+                    cell.Link(neighbors.Random());
                 }
             }
 

@@ -48,6 +48,7 @@
     <Compile Include="ColoredGrid.cs" />
     <Compile Include="Distances.cs" />
     <Compile Include="Grid.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

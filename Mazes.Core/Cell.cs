@@ -13,6 +13,15 @@ namespace Mazes.Core
         public Cell North { get; set; }
         public Cell South { get; set; }
         
+        public List<Cell> Neighbors
+        {
+            get
+            {
+                var neighbors = new List<Cell> { East, West, North, South };
+                return neighbors.Where(c => c != null).ToList();
+            }
+        }
+
         public Distances Distances
         {
             get
