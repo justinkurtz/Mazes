@@ -57,6 +57,7 @@
     <Compile Include="Algorithms\AldousBroderTests.cs" />
     <Compile Include="Algorithms\BinaryTreeTests.cs" />
     <Compile Include="Algorithms\HuntAndKillTests.cs" />
+    <Compile Include="Algorithms\RecursiveBacktrackerTests.cs" />
     <Compile Include="Algorithms\SidewinderTests.cs" />
     <Compile Include="Algorithms\WilsonsTests.cs" />
     <Compile Include="Core\CellTests.cs" />
