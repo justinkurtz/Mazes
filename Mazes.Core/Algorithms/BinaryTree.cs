@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Mazes.Algorithms
+namespace Mazes.Core.Algorithms
 {
     public class BinaryTree
     {

@@ -1,5 +1,4 @@
-﻿using System;
-using Mazes.Algorithms;
+﻿using Mazes.Core.Algorithms;
 using Mazes.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

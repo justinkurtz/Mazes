@@ -1,5 +1,5 @@
-﻿using Mazes.Algorithms;
-using Mazes.Core;
+﻿using Mazes.Core;
+using Mazes.Core.Algorithms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Mazes.Tests.Core
