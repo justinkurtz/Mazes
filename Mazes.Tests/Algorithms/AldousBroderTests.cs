@@ -7,17 +7,10 @@ namespace Mazes.Tests.Algorithms
     [TestClass]
     public class AldousBroderTests
     {
-        private Grid grid;
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            grid = new Grid(5, 5);
-        }
-
         [TestMethod]
         public void TestAldousBroder()
         {
+            var grid = new Grid(5, 5);
             AldousBroder.On(grid).ToBitmap().Save("aldousbroder.png");
         }
 

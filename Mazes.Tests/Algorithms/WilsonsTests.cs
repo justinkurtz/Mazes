@@ -7,17 +7,10 @@ namespace Mazes.Tests.Algorithms
     [TestClass]
     public class WilsonsTests
     {
-        private Grid grid;
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            grid = new Grid(5, 5);
-        }
-
         [TestMethod]
         public void TestWilsons()
         {
+            var grid = new Grid(5, 5);
             Wilsons.On(grid).ToBitmap().Save("wilsons.png");
         }
 

@@ -8,17 +8,10 @@ namespace Mazes.Tests.Algorithms
     [TestClass]
     public class BinaryTreeTests
     {
-        private Grid grid;
-
-        [TestInitialize]
-        public void TestInit()
-        {
-            grid = new Grid(5, 5);
-        }
-
         [TestMethod]
         public void TestBinaryTree()
         {
+            var grid = new Grid(5, 5);
             BinaryTree.On(grid).ToBitmap().Save("binarytree.png");
         }
 
