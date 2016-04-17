@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\AldousBroder.cs" />
     <Compile Include="Algorithms\BinaryTree.cs" />
+    <Compile Include="Algorithms\Sidewinder.cs" />
     <Compile Include="Algorithms\Wilsons.cs" />
     <Compile Include="Cell.cs" />
     <Compile Include="ColoredGrid.cs" />
