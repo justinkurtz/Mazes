@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Algorithms\AldousBroder.cs" />
     <Compile Include="Algorithms\BinaryTree.cs" />
+    <Compile Include="Algorithms\GrowingTree.cs" />
     <Compile Include="Algorithms\HuntAndKill.cs" />
     <Compile Include="Algorithms\RecursiveBacktracker.cs" />
     <Compile Include="Algorithms\Sidewinder.cs" />
