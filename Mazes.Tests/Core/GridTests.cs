@@ -75,5 +75,13 @@ namespace Mazes.Tests.Core
             var bitmap = smallGrid.ToBitmap();
             Assert.IsNotNull(bitmap);
         }
+
+        [TestMethod]
+        public void TestLinq()
+        {
+            var first = smallGrid.First();
+
+            Assert.AreEqual(smallGrid[0, 0], first);
+        }
     }
 }

@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace Mazes.Core
 {
-    public class Grid : IEnumerable
+    public class Grid : IEnumerable<Cell>
     {
         public int Rows { get; private set; }
         public int Columns { get; private set; }
@@ -72,17 +72,6 @@ namespace Mazes.Core
         public int Count()
         {
             return Rows * Columns;
-        }
-
-        public IEnumerator GetEnumerator()
-        {
-            for (int row = 0; row < Rows; row++)
-            {
-                for (int col = 0; col < Columns; col++)
-                {
-                    yield return _Cells[row, col];
-                }
-            }
         }
 
         public Cell this[int row, int col]
@@ -194,6 +183,28 @@ namespace Mazes.Core
             }
 
             return sb.ToString();
+        }
+
+        IEnumerator<Cell> IEnumerable<Cell>.GetEnumerator()
+        {
+            for (int row = 0; row < Rows; row++)
+            {
+                for (int col = 0; col < Columns; col++)
+                {
+                    yield return _Cells[row, col];
+                }
+            }
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for (int row = 0; row < Rows; row++)
+            {
+                for (int col = 0; col < Columns; col++)
+                {
+                    yield return _Cells[row, col];
+                }
+            }
         }
     }
 }
