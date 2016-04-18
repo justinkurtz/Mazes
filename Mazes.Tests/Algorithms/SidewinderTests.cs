@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Mazes.Core.Algorithms;
 using Mazes.Core;
+using System.Linq;
 
 namespace Mazes.Tests.Algorithms
 {

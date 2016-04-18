@@ -4,7 +4,7 @@ using System.Linq;
 
 public static class EnumerableExtensions
 {
-    private static Random rand = new Random(DateTime.Now.Millisecond);
+    private static Random rand = new Random();
 
     public static T Random<T>(this IEnumerable<T> source)
     {
