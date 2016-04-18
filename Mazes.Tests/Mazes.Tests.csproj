@@ -59,6 +59,7 @@
     <Compile Include="Algorithms\GrowingTreeTests.cs" />
     <Compile Include="Algorithms\HuntAndKillTests.cs" />
     <Compile Include="Algorithms\RecursiveBacktrackerTests.cs" />
+    <Compile Include="Algorithms\RecursiveDivisionTests.cs" />
     <Compile Include="Algorithms\SidewinderTests.cs" />
     <Compile Include="Algorithms\WilsonsTests.cs" />
     <Compile Include="Core\CellTests.cs" />
