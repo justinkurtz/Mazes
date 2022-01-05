@@ -4,7 +4,7 @@ namespace Mazes.Core.Algorithms
 {
     public class RecursiveDivision
     {
-        private static Random rand = new Random();
+        private static Random rand = new();
         private static Grid dividingGrid { get; set; }
 
         public static Grid On(Grid grid)
@@ -39,7 +39,7 @@ namespace Mazes.Core.Algorithms
         {
             var divideSouthOf = rand.Next(height - 1);
             var passageAt = rand.Next(width);
-            for (int i = 0; i < width; i++)
+            for (var i = 0; i < width; i++)
             {
                 if (passageAt == i)
                     continue;
@@ -57,7 +57,7 @@ namespace Mazes.Core.Algorithms
             var divideEastOf = rand.Next(width - 1);
             var passageAt = rand.Next(height);
 
-            for (int i = 0; i < height; i++)
+            for (var i = 0; i < height; i++)
             {
                 if (passageAt == i)
                     continue;

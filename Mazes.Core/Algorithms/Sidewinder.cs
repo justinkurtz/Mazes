@@ -5,7 +5,7 @@ namespace Mazes.Core.Algorithms
 {
     public class Sidewinder
     {
-        private static Random rand = new Random();
+        private static Random rand = new();
 
         public static Grid On(Grid grid)
         {

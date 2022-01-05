@@ -5,8 +5,8 @@ namespace Mazes.Core
 {
     public class Cell
     {
-        public int Row { get; set; }
-        public int Column { get; set; }
+        public int Row { get; }
+        public int Column { get; }
 
         public Cell East { get; set; }
         public Cell West { get; set; }
@@ -27,7 +27,7 @@ namespace Mazes.Core
             get
             {
                 var distances = new Distances(this);
-                var frontier = new List<Cell>() { this };
+                var frontier = new List<Cell> { this };
 
                 while(frontier.Any())
                 {
@@ -52,10 +52,7 @@ namespace Mazes.Core
             }
         }
 
-        public IEnumerable<Cell> Links
-        {
-            get { return _Links.Keys; }
-        }
+        public IEnumerable<Cell> Links => _Links.Keys;
 
         private Dictionary<Cell, bool> _Links { get; set; }
 

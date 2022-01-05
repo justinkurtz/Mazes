@@ -7,10 +7,7 @@ namespace Mazes.Core.Algorithms
     {
         public static Grid On(Grid grid, Cell start = null)
         {
-            if (start == null)
-            {
-                start = grid.GetRandomCell();
-            }
+            start ??= grid.GetRandomCell();
 
             var stack = new Stack<Cell>();
             stack.Push(start);

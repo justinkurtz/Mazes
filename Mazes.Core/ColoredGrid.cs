@@ -10,15 +10,7 @@ namespace Mazes.Core
 
         public Distances Distances
         {
-            get
-            {
-                if (distances == null)
-                {
-                    distances = new Distances(this[0, 0]);
-                }
-
-                return distances;
-            }
+            get => distances ??= new Distances(this[0, 0]);
             set
             {
                 distances = value;

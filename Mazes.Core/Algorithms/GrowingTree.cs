@@ -7,13 +7,9 @@ namespace Mazes.Core.Algorithms
     {
         public static Grid On(Grid grid, Cell start = null)
         {
-            if (start == null)
-            {
-                start = grid.GetRandomCell();
-            }
+            start ??= grid.GetRandomCell();
 
-            var active = new List<Cell>();
-            active.Add(start);
+            var active = new List<Cell> { start };
 
             while(active.Any())
             {

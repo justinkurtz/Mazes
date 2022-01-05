@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Mazes.Core.Algorithms
 {
-    using Core;
-
     public class Wilsons
     {
         public static Grid On(Grid grid)
         {
-            var unvisited = grid.Cast<Cell>().ToList();
+            var unvisited = grid.ToList();
 
             var first = unvisited.Random();
             unvisited.Remove(first);
@@ -34,7 +31,7 @@ namespace Mazes.Core.Algorithms
                     }
                 }
 
-                for (int i = 0; i < path.Count - 1; i++)
+                for (var i = 0; i < path.Count - 1; i++)
                 {
                     path[i].Link(path[i + 1]);
                     unvisited.Remove(path[i]);

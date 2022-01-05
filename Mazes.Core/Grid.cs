@@ -9,11 +9,11 @@ namespace Mazes.Core
 {
     public class Grid : IEnumerable<Cell>
     {
-        public int Rows { get; private set; }
-        public int Columns { get; private set; }
+        public int Rows { get; }
+        public int Columns { get; }
 
-        private Cell[,] _Cells { get; set; }
-        private static Random random = new Random();
+        private Cell[,] _Cells { get; }
+        private static Random random = new();
 
         public Grid(int rows, int columns)
         {
@@ -26,17 +26,17 @@ namespace Mazes.Core
 
         private void Init()
         {
-            for (int row = 0; row < Rows; row++)
+            for (var row = 0; row < Rows; row++)
             {
-                for (int col = 0; col < Columns; col++)
+                for (var col = 0; col < Columns; col++)
                 {
                     _Cells[row, col] = new Cell(row, col);
                 }
             }
 
-            for (int row = 0; row < Rows; row++)
+            for (var row = 0; row < Rows; row++)
             {
-                for (int col = 0; col < Columns; col++)
+                for (var col = 0; col < Columns; col++)
                 {
                     _Cells[row, col].North = this[row - 1, col];
                     _Cells[row, col].South = this[row + 1, col];
@@ -48,8 +48,8 @@ namespace Mazes.Core
 
         public Cell GetRandomCell()
         {
-            int row = random.Next(Rows);
-            int col = random.Next(Columns);
+            var row = random.Next(Rows);
+            var col = random.Next(Columns);
 
             return _Cells[row, col];
         }
@@ -63,7 +63,7 @@ namespace Mazes.Core
         {
             var allCells = this.Cast<Cell>();
 
-            for (int row = 0; row < Rows; row++)
+            for (var row = 0; row < Rows; row++)
             {
                 yield return allCells.Skip(row * Columns).Take(Columns);
             }
@@ -98,54 +98,52 @@ namespace Mazes.Core
         public Bitmap ToBitmap(int cellSize = 20)
         {
             var bitmap = new Bitmap(cellSize * Columns + 1, cellSize * Rows + 1);
-            using (var graphic = Graphics.FromImage(bitmap))
+            using var graphic = Graphics.FromImage(bitmap);
+            graphic.Clear(Color.White);
+
+            // Paint the backgrounds
+            foreach (Cell cell in this)
             {
-                graphic.Clear(Color.White);
+                var x1 = cell.Column * cellSize;
+                var y1 = cell.Row * cellSize;
+                var x2 = (cell.Column + 1) * cellSize;
+                var y2 = (cell.Row + 1) * cellSize;
 
-                // Paint the backgrounds
-                foreach (Cell cell in this)
+                var color = BackgroundBrushFor(cell);
+                if (color != Brushes.White)
                 {
-                    var x1 = cell.Column * cellSize;
-                    var y1 = cell.Row * cellSize;
-                    var x2 = (cell.Column + 1) * cellSize;
-                    var y2 = (cell.Row + 1) * cellSize;
-
-                    var color = BackgroundBrushFor(cell);
-                    if (color != Brushes.White)
-                    {
-                        graphic.FillRectangle(color, new Rectangle { X = x1, Y = y1, Width = x2 - x1, Height = y2 - y1 });
-                    }
+                    graphic.FillRectangle(color, new Rectangle { X = x1, Y = y1, Width = x2 - x1, Height = y2 - y1 });
                 }
-
-                // Paint the walls
-                foreach (Cell cell in this)
-                {
-                    var x1 = cell.Column * cellSize;
-                    var y1 = cell.Row * cellSize;
-                    var x2 = (cell.Column + 1) * cellSize;
-                    var y2 = (cell.Row + 1) * cellSize;
-
-                    var pen = Pens.Black;
-                    if (!cell.IsLinked(cell.North))
-                    {
-                        graphic.DrawLine(pen, new Point { X = x1, Y = y1 }, new Point { X = x2, Y = y1 });
-                    }
-                    if (!cell.IsLinked(cell.West))
-                    {
-                        graphic.DrawLine(pen, new Point { X = x1, Y = y1 }, new Point { X = x1, Y = y2 });
-                    }
-                    if (!cell.IsLinked(cell.East))
-                    {
-                        graphic.DrawLine(pen, new Point { X = x2, Y = y1 }, new Point { X = x2, Y = y2 });
-                    }
-                    if (!cell.IsLinked(cell.South))
-                    {
-                        graphic.DrawLine(pen, new Point { X = x1, Y = y2 }, new Point { X = x2, Y = y2 });
-                    }
-                }
-
-                graphic.Save();
             }
+
+            // Paint the walls
+            foreach (Cell cell in this)
+            {
+                var x1 = cell.Column * cellSize;
+                var y1 = cell.Row * cellSize;
+                var x2 = (cell.Column + 1) * cellSize;
+                var y2 = (cell.Row + 1) * cellSize;
+
+                var pen = Pens.Black;
+                if (!cell.IsLinked(cell.North))
+                {
+                    graphic.DrawLine(pen, new Point { X = x1, Y = y1 }, new Point { X = x2, Y = y1 });
+                }
+                if (!cell.IsLinked(cell.West))
+                {
+                    graphic.DrawLine(pen, new Point { X = x1, Y = y1 }, new Point { X = x1, Y = y2 });
+                }
+                if (!cell.IsLinked(cell.East))
+                {
+                    graphic.DrawLine(pen, new Point { X = x2, Y = y1 }, new Point { X = x2, Y = y2 });
+                }
+                if (!cell.IsLinked(cell.South))
+                {
+                    graphic.DrawLine(pen, new Point { X = x1, Y = y2 }, new Point { X = x2, Y = y2 });
+                }
+            }
+
+            graphic.Save();
 
             return bitmap;
         }
@@ -153,9 +151,9 @@ namespace Mazes.Core
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("+");
+            sb.Append('+');
 
-            for (int i = 0; i < Columns; i++)
+            for (var i = 0; i < Columns; i++)
             {
                 sb.Append("---+");
             }
@@ -165,17 +163,17 @@ namespace Mazes.Core
             foreach (var row in EachRow())
             {
                 var top = new StringBuilder();
-                top.Append("|");
+                top.Append('|');
                 var bottom = new StringBuilder();
-                bottom.Append("+");
+                bottom.Append('+');
 
                 foreach (var cell in row)
                 {
-                    var east_boundary = cell.IsLinked(cell.East) ? " " : "|";
-                    top.AppendFormat("{0}{1}", ContentsOf(cell), east_boundary);
+                    var eastBoundary = cell.IsLinked(cell.East) ? " " : "|";
+                    top.Append($"{ContentsOf(cell)}{eastBoundary}");
 
-                    var south_boundary = cell.IsLinked(cell.South) ? "   " : "---";
-                    bottom.AppendFormat("{0}{1}", south_boundary, "+");
+                    var southBoundary = cell.IsLinked(cell.South) ? "   " : "---";
+                    bottom.Append($"{southBoundary}+");
                 }
 
                 sb.AppendLine(top.ToString());
@@ -187,9 +185,9 @@ namespace Mazes.Core
 
         IEnumerator<Cell> IEnumerable<Cell>.GetEnumerator()
         {
-            for (int row = 0; row < Rows; row++)
+            for (var row = 0; row < Rows; row++)
             {
-                for (int col = 0; col < Columns; col++)
+                for (var col = 0; col < Columns; col++)
                 {
                     yield return _Cells[row, col];
                 }
@@ -198,9 +196,9 @@ namespace Mazes.Core
 
         public IEnumerator GetEnumerator()
         {
-            for (int row = 0; row < Rows; row++)
+            for (var row = 0; row < Rows; row++)
             {
-                for (int col = 0; col < Columns; col++)
+                for (var col = 0; col < Columns; col++)
                 {
                     yield return _Cells[row, col];
                 }

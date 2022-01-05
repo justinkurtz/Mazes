@@ -9,8 +9,7 @@ namespace Mazes.Core
         {
             get
             {
-                int val;
-                if (_Cells.TryGetValue(cell, out val))
+                if (_Cells.TryGetValue(cell, out var val))
                 {
                     return val;
                 }
@@ -23,15 +22,9 @@ namespace Mazes.Core
             }
         }
 
-        public IEnumerable<Cell> Cells
-        {
-            get { return _Cells.Keys; }
-        }
+        public IEnumerable<Cell> Cells => _Cells.Keys;
 
-        public int Max
-        {
-            get { return _Cells.Max(c => c.Value); }
-        }
+        public int Max => _Cells.Max(c => c.Value);
 
         private Dictionary<Cell, int> _Cells { get; set; }
         private Cell _Root { get; set; }
@@ -39,8 +32,10 @@ namespace Mazes.Core
         public Distances(Cell root)
         {
             _Root = root;
-            _Cells = new Dictionary<Cell, int>();
-            _Cells[_Root] = 0;
+            _Cells = new Dictionary<Cell, int>
+            {
+                [_Root] = 0
+            };
         }
 
         public bool HasKey(Cell cell)
